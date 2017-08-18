@@ -5,7 +5,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     get static_pages_home_url
     assert_response :success
     # check that title is correct
-    assert_select "title", "Home | Ruby on Rails Tutorial Sample App"
+    assert_select "title", "Ruby on Rails Tutorial Sample App"
   end
 
   test "should get help" do
