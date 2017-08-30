@@ -13,6 +13,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
     # Add capability to test error messages
     assert_select 'div#error_explanation'
-    assert_select 'div.field_with_erors'
+    assert_select 'div.field_with_errors'
   end
 end
