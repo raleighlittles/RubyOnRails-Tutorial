@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
 
   # Add new routes for logging in/out
-  get '/login', to: 'sessions#new' # logging in creates a new session, which makes sense
-  get '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   resources :users
 end
