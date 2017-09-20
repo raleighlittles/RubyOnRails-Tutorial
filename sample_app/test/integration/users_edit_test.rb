@@ -39,4 +39,26 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal email, @user.email
   end
 
+  # Friendly forwarding: when a user tries to access a page that requires login (but they are not logged in), they
+  # will be redirected to the login page. However, once logged in, they would be redirected to their user profile page,
+  # and not their edit profile page (which is their original intended destination!). Friendly forwarding here would
+  # forward them back to the page they were trying to access originally (before they had logged in).
+
+  test "successful edit with friendly forwarding" do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_url(@user)
+    name  = "Foo Bar"
+    email = "foo@bar.com"
+    patch user_path(@user), params: { user: { name:  name,
+                                              email: email,
+                                              password:              "",
+                                              password_confirmation: "" } }
+    assert_not flash.empty?
+    assert_redirected_to @user
+    @user.reload
+    assert_equal name,  @user.name
+    assert_equal email, @user.email
+  end
+
 end
