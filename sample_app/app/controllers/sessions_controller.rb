@@ -6,6 +6,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
+      # If the user checks the checkbox, keep them logged in
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+
+      #remember user
       redirect_to user
     else
       flash.now[:danger] = 'Invalid email/password combination'
@@ -14,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  log_out
+  log_out if logged_in? # only log out if a user is currently logged in
     redirect_to root_url
   end
 
