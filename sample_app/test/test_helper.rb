@@ -19,7 +19,8 @@ class ActiveSupport::TestCase
 end
 
 class ActionDispatch::IntegrationTest
-
+  # Because this is in the Integration Test class, its the version thats going to get called during
+  # actual integration tests!
   # Log in as a particular user.
   def log_in_as(user, password: 'password', remember_me: '1')
     post login_path, params: { session: { email: user.email,
