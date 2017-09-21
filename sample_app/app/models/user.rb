@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  # The destroy part is needed to make sure that when a user is destroyed, so are their microposts
+  has_many :microposts, dependent: :destroy
+
     attr_accessor(:remember_token)
 
     attr_accessor :remember_token, :activation_token, :reset_token
