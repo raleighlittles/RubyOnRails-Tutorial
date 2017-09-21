@@ -39,6 +39,7 @@ We need the controller to handle four cases:
       render 'edit'
     elsif @user.update_attributes(user_params)          # Case (4)
       log_in @user
+      @user.update_attribute(:reset_digest, nil)
       flash[:success] = "Password has been reset."
       redirect_to @user
     else
