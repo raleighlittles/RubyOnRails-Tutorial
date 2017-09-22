@@ -2,8 +2,13 @@ class User < ApplicationRecord
 
   # The destroy part is needed to make sure that when a user is destroyed, so are their microposts
   has_many :microposts, dependent: :destroy
+  has_many :active_relationships, class_name:  "Relationship",
+           foreign_key: "follower_id",
+           dependent:   :destroy
 
-    attr_accessor(:remember_token)
+  has_many :following, through: :active_relationships, source: :followed
+
+    #attr_accessor(:remember_token)
 
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save   :downcase_email
