@@ -17,7 +17,7 @@ gem 'bootstrap-sass', '3.3.7'
 
 # Use this to handle image uploading (13.4.1)
 gem 'carrierwave',             '1.1.0'
-gem 'mini_magick',             '4.7.0'
+gem 'mini_magick',             '4.9.4'
 gem 'fog',                     '1.40.0'
 
 # Use sqlite3 as the database for Active Record
