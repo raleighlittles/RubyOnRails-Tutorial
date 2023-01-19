@@ -67,7 +67,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.10)
     crass (1.0.6)
     erubi (1.6.1)
     excon (0.73.0)
@@ -214,8 +214,8 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
-    globalid (0.4.0)
-      activesupport (>= 4.2.0)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -252,7 +252,7 @@ GEM
     mime-types-data (3.2020.1104)
     mini_magick (4.9.4)
     mini_portile2 (2.8.0)
-    minitest (5.14.3)
+    minitest (5.17.0)
     minitest-reporters (1.1.14)
       ansi
       builder
